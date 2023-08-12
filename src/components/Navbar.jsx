@@ -19,7 +19,7 @@ const Navbar = () => {
   const getProducts = async (type) => {
     try {
       const { data } = await axios(
-        `https://us-central1-prueba-front-280718.cloudfunctions.net/${type}`
+        `https://us-central1-prueba-front-280718.cloudfunctions.net/${type.toLowerCase()}`
       );
       setProducts(data);
       setProductCategory(type);
@@ -41,7 +41,7 @@ const Navbar = () => {
   }, [error]);
 
   const openSidebar = (type) => {
-    getProducts(type.toLowerCase());
+    getProducts(type);
     setActiveSidebar(true);
   };
 
